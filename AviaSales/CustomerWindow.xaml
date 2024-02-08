@@ -1,0 +1,35 @@
+﻿<Window x:Class="RestaurantDesktop.CustomerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:RestaurantDesktop"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="Оформить заказ" Height="484" Width="901">
+    <Grid>
+        <TabControl SelectionChanged="TabControl_SelectionChanged">
+            <TabItem Header="Оформить заказ">
+                <Grid>
+                    <ComboBox x:Name="restaurantCombo" HorizontalAlignment="Left" Margin="24,126,0,0" materialDesign:HintAssist.Hint="Выберите ресторан" VerticalAlignment="Top" Width="188" Height="27" SelectionChanged="restaurantCombo_SelectionChanged"/>
+                    <ComboBox x:Name="posCombo" HorizontalAlignment="Left" Margin="24,190,0,0" materialDesign:HintAssist.Hint="Выберите блюдо" VerticalAlignment="Top" Width="188" Height="27"/>
+                    <ListBox x:Name="basket" FontSize="17" BorderBrush="Black" BorderThickness="3" Margin="469,0,0,0"/>
+                    <Button x:Name="createOrder" Content="Оформить заказ" HorizontalAlignment="Left" Margin="10,356,0,0" VerticalAlignment="Top" Height="44" Width="188" Click="createOrder_Click"/>
+                    <Button x:Name="addToBasket" Content="Добавить в корзину" HorizontalAlignment="Left" Margin="262,356,0,0" VerticalAlignment="Top" Height="44" Width="188" Click="addToBasket_Click"/>
+                    <TextBlock x:Name="sum" HorizontalAlignment="Left" Margin="245,177,0,0" FontSize="18" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="188"/>
+                    <Button x:Name="deleteFromBasket" Content="Удалить из корзины" HorizontalAlignment="Left" Margin="262,70,0,0" VerticalAlignment="Top" Height="43" Width="201" Click="deleteFromBasket_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Мои заказы">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="277*"/>
+                        <ColumnDefinition Width="624*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="ordersOfUser" SelectionChanged="ordersOfUser_SelectionChanged" IsReadOnly="True" Grid.ColumnSpan="2"/>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

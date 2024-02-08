@@ -1,0 +1,67 @@
+﻿<Window x:Class="RestaurantDesktop.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RestaurantDesktop"
+        xmlns:materialDesignMahApps="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        mc:Ignorable="d"
+        Title="AdminWindow" Height="600" Width="1000">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Добавить места в ресторан">
+                <Grid Background="#FFE5E5E5">
+                    <TextBox x:Name="addrText" HorizontalAlignment="Left" Margin="10,70,0,0" TextWrapping="Wrap" materialDesignMahApps:HintAssist.Hint="Введите адрес" VerticalAlignment="Top" Width="287" Height="38"/>
+                    <Button x:Name="addRest" Content="Добавить ресторан" HorizontalAlignment="Left" Margin="10,242,0,0" VerticalAlignment="Top" Height="57" Width="248" Click="addRest_Click"/>
+                    <Button x:Name="addTable" Content="Добавить столик" HorizontalAlignment="Left" Margin="430,242,0,0" VerticalAlignment="Top" Height="57" Width="248" Click="addTable_Click"/>
+                    <Button x:Name="addHall" Content="Добавить зал" HorizontalAlignment="Left" Margin="712,242,0,0" VerticalAlignment="Top" Height="57" Width="249" Click="addHall_Click"/>
+                    <TextBox x:Name="countText" HorizontalAlignment="Left" Margin="10,155,0,0" TextWrapping="Wrap" materialDesignMahApps:HintAssist.Hint="Введите вместимость" VerticalAlignment="Top" Width="287" Height="38"/>
+                    <TextBox x:Name="valText" HorizontalAlignment="Left" Margin="550,120,0,0" TextWrapping="Wrap" materialDesignMahApps:HintAssist.Hint="Введите значение" VerticalAlignment="Top" Width="286" Height="38"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Добавить блюдо в меню">
+                <Grid Background="#FFE5E5E5">
+                    <TextBox x:Name="posName" HorizontalAlignment="Left" Margin="33,56,0,0" TextWrapping="Wrap" materialDesignMahApps:HintAssist.Hint="Название товара" VerticalAlignment="Top" Width="211" Height="31"/>
+                    <TextBox x:Name="posPrice" HorizontalAlignment="Left" Margin="33,115,0,0" TextWrapping="Wrap" materialDesignMahApps:HintAssist.Hint="Цена товара" VerticalAlignment="Top" Width="211" Height="31"/>
+                    <Button x:Name="addPos" Content="Добавить блюдо" HorizontalAlignment="Left" Margin="66,181,0,0" VerticalAlignment="Top" Height="49" Width="144" Click="addPos_Click"/>
+                    <ComboBox x:Name="comboPos" HorizontalAlignment="Left" Margin="529,14,0,0" materialDesignMahApps:HintAssist.Hint="Выбрать товар" VerticalAlignment="Top" Width="198" Height="24"/>
+                    <ComboBox x:Name="comboRes" HorizontalAlignment="Left" Margin="529,72,0,0" materialDesignMahApps:HintAssist.Hint="Выбрать ресторан" VerticalAlignment="Top" Width="198" Height="26" SelectionChanged="comboRes_SelectionChanged"/>
+                    <Button x:Name="addMenu" Content="Добавить блюдо в меню" HorizontalAlignment="Left" Margin="643,156,0,0" VerticalAlignment="Top" Height="49" Width="205" Click="addMenu_Click"/>
+                    <Button x:Name="deletePos" Content="Удалить блюдо из БД" HorizontalAlignment="Left" Margin="433,156,0,0" VerticalAlignment="Top" Height="49" Width="192" Click="deletePos_Click"/>
+                    <DataGrid IsReadOnly="True" x:Name="menuGrid" Margin="10,262,411,10"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Проверить оплату заказа">
+                <Grid Background="#FFE5E5E5">
+                    <ComboBox x:Name="orderCombo" HorizontalAlignment="Center" materialDesignMahApps:HintAssist.Hint="Выберите заказ" Margin="0,162,0,0" VerticalAlignment="Top" Width="298" Height="31"/>
+                    <Button x:Name="checkPayment" Content="Проверить оплату" HorizontalAlignment="Center" Margin="0,245,0,0" VerticalAlignment="Top" Height="58" Width="292" Click="checkPayment_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Работа с данными">
+                <Grid Background="#FFE5E5E5">
+                    <Button x:Name="backupButton" Content="Сделать резервную копию БД" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="64" Width="234" Click="backupButton_Click"/>
+                    <ComboBox x:Name="comboTable" materialDesignMahApps:HintAssist.Hint="Выберите таблицу" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Width="344" Height="32"/>
+                    <Button x:Name="exportCSV" Content="Экспорт в CSV" HorizontalAlignment="Left" Margin="537,94,0,0" VerticalAlignment="Top" Height="48" Width="208" Click="exportCSV_Click"/>
+                    <Button x:Name="exportSQL" Content="Экспорт в SQL" HorizontalAlignment="Left" Margin="287,94,0,0" VerticalAlignment="Top" Height="48" Width="208" Click="exportSQL_Click"/>
+                    <lvc:CartesianChart Margin="0,180,359,60">
+                        <lvc:CartesianChart x:Name="chart" LegendLocation="Right" >
+                            <lvc:CartesianChart.AxisY>
+                                <lvc:Axis Title="Суммы"></lvc:Axis>
+                            </lvc:CartesianChart.AxisY>
+                            <lvc:CartesianChart.AxisX>
+                                <lvc:Axis Title="Даты" x:Name="xAxis" ></lvc:Axis>
+                            </lvc:CartesianChart.AxisX>
+                        </lvc:CartesianChart>
+                    </lvc:CartesianChart>
+                    <DatePicker x:Name="dateChoose" HorizontalAlignment="Left" Margin="756,193,0,0" VerticalAlignment="Top" Height="29" Width="205"/>
+                    <Button x:Name="addToDiagramm" Content="Добавить на диаграмму" HorizontalAlignment="Left" Margin="754,268,0,0" VerticalAlignment="Top" Height="48" Width="208" Click="addToDiagramm_Click"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

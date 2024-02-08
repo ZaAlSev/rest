@@ -1,0 +1,21 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RestaurantDesktop"
+        xmlns:materialDesignMahApps="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="RestaurantDesktop.OptionalsWindow"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="Дополнительные параметры к заказу" Height="430" Width="879">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" FontSize="20" Text="Выберите дату и время посещения ресторана, а также кол-во персон" VerticalAlignment="Top" Height="31" Width="652"/>
+        <TextBox x:Name="time" HorizontalAlignment="Left" Margin="23,178,0,0" VerticalAlignment="Top" Height="29" Width="158"/>
+        <Button x:Name="newOrder" Content="Оформить заказ" Margin="336,297,335,67" Height="50" Click="newOrder_Click"/>
+        <DatePicker x:Name="date" HorizontalAlignment="Left" Margin="23,108,0,0" VerticalAlignment="Top" Height="50" Width="331"/>
+        <TextBox x:Name="count" HorizontalAlignment="Left" Margin="406,133,0,0" TextWrapping="Wrap" materialDesignMahApps:HintAssist.Hint="Кол-во персон" VerticalAlignment="Top" Width="190"/>
+        <ComboBox x:Name="paymentCombo" HorizontalAlignment="Left" Margin="406,190,0,0" Width="190" materialDesignMahApps:HintAssist.Hint="Способ оплаты" Height="22" VerticalAlignment="Top"/>
+        <ComboBox x:Name="hallCombo" HorizontalAlignment="Left" Margin="652,136,0,0" Width="190" materialDesignMahApps:HintAssist.Hint="Выберите зал" Height="22" VerticalAlignment="Top"/>
+        <ComboBox x:Name="tableCombo" HorizontalAlignment="Left" Margin="652,190,0,0" Width="190" materialDesignMahApps:HintAssist.Hint="Выберите столик" Height="22" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

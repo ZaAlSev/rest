@@ -1,0 +1,20 @@
+﻿<Window x:Class="RestaurantDesktop.PaymentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RestaurantDesktop"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="PaymentWindow" Height="450" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,43,0,0" TextWrapping="Wrap" Text="Оплата заказа" FontSize="20" TextAlignment="Center" VerticalAlignment="Top" Height="62" Width="470"/>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="165,134,165,135">
+
+        </Border>
+        <TextBox MaxLength="16" x:Name="cardNum" HorizontalAlignment="Center" Margin="0,149,0,0" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Номер карты"  VerticalAlignment="Top" Width="388" Height="30" TextChanged="cardNum_TextChanged"/>
+        <TextBox MaxLength="4" x:Name="date" HorizontalAlignment="Left" Margin="206,228,0,0" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Дата истечения" VerticalAlignment="Top" Width="120" TextChanged="date_TextChanged"/>
+        <TextBox MaxLength="3" x:Name="cvc" HorizontalAlignment="Left" Margin="474,228,0,0" TextWrapping="Wrap" materialDesign:HintAssist.Hint="CVC-номер" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="payButton" Content="Оплатить заказ" HorizontalAlignment="Center" Margin="0,342,0,0" VerticalAlignment="Top" Height="58" Width="216" Click="payButton_Click"/>
+    </Grid>
+</Window>
